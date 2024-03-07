@@ -1,7 +1,7 @@
-terraform {
-  backend "s3" {
-    bucket = "ajay-mrcloudbook777" # Replace with your actual S3 bucket name
-    key    = "EKS/terraform.tfstate"
-    region = "ap-south-1"
-  }
+terraform{
+    backend "s3" {
+      bucket = "eks-bucket-4875"
+      key = "terraform.tfstate"
+      region = "us-east-1"
+    }
 }
