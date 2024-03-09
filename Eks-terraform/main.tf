@@ -43,7 +43,7 @@ resource "aws_eks_cluster" "example" {
   name = "EKS_OpenAI"
   role_arn = aws_iam_role.example1.arn
   vpc_config {
-    subnet_ids = slice(data.aws_subnets.public.ids, 0, 3) 
+    subnet_ids = slice(data.aws_subnets.public.ids, 3, 6) 
   }
 
   depends_on = [ 
@@ -85,7 +85,7 @@ resource "aws_eks_node_group" "EKS-NodeGroup" {
   cluster_name = aws_eks_cluster.example.name
   node_group_name = "eksNodeGroup"
   node_role_arn = aws_iam_role.ec2Role.arn
-  subnet_ids = slice(data.aws_subnets.public.ids, 0, 3)
+  subnet_ids = slice(data.aws_subnets.public.ids, 3, 6)
 
   instance_types = ["t2.medium"]
 
