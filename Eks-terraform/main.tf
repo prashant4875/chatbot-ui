@@ -43,7 +43,7 @@ resource "aws_eks_cluster" "example" {
   name = "EKS_OpenAI"
   role_arn = aws_iam_role.example1.arn
   vpc_config {
-    subnet_ids = data.aws_subnets.public.ids 
+    subnet_ids = slice(data.aws_subnets.public.ids, 0, 3) 
   }
 
   depends_on = [ 
