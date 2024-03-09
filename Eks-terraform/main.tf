@@ -85,7 +85,7 @@ resource "aws_eks_node_group" "EKS-NodeGroup" {
   cluster_name = aws_eks_cluster.example.name
   node_group_name = "eksNodeGroup"
   node_role_arn = aws_iam_role.ec2Role.arn
-  subnet_ids = data.aws_subnets.public.ids
+  subnet_ids = slice(data.aws_subnets.public.ids, 0, 3)
 
   instance_types = ["t2.medium"]
 
